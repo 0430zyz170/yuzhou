@@ -6,38 +6,38 @@
 <title>禹宙回响 · 泽禹</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;font-weight:300;letter-spacing:.02em}
-body{min-height:100vh;background:linear-gradient(145deg,#1a3b2e 0%,#2a5a3e 100%);display:flex;align-items:center;justify-content:center;padding:24px}
-.game-container{width:900px;max-width:100%;background:rgba(220,240,220,.15);backdrop-filter:blur(6px);border:3px solid #fff;border-radius:40px;padding:28px 32px 32px;box-shadow:0 20px 40px rgba(0,20,0,.6);display:flex;flex-direction:column;gap:20px}
-.game-header{display:flex;justify-content:space-between;align-items:center;color:#fff;text-shadow:0 2px 6px #0f2a1a;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:12px;flex-wrap:wrap;gap:12px}
-.game-title{font-size:1.9rem;letter-spacing:6px;font-weight:200;background:linear-gradient(to right,#f0fff0,#c0e0c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.header-actions{display:flex;gap:10px;flex-wrap:wrap}
-.header-actions button{background:transparent;border:2px solid #fff;color:#fff;padding:8px 16px;border-radius:40px;font-size:.85rem;cursor:pointer;transition:.2s;backdrop-filter:blur(4px)}
+body{min-height:100vh;background:linear-gradient(145deg,#0f2a1e 0%,#1a4a30 50%,#2a6a48 100%);display:flex;align-items:center;justify-content:center;padding:20px}
+.game-container{width:920px;max-width:100%;background:rgba(200,240,210,.12);backdrop-filter:blur(8px);border:3px solid #fff;border-radius:40px;padding:26px 30px 30px;box-shadow:0 20px 50px rgba(0,20,0,.7);display:flex;flex-direction:column;gap:18px}
+.game-header{display:flex;justify-content:space-between;align-items:center;color:#fff;text-shadow:0 2px 6px #0f2a1a;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:12px;flex-wrap:wrap;gap:10px}
+.game-title{font-size:1.8rem;letter-spacing:5px;font-weight:200;background:linear-gradient(to right,#e0ffe8,#a0d8b0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-actions{display:flex;gap:8px;flex-wrap:wrap}
+.header-actions button{background:transparent;border:2px solid #fff;color:#fff;padding:7px 14px;border-radius:40px;font-size:.82rem;cursor:pointer;transition:.2s;backdrop-filter:blur(4px)}
 .header-actions button:hover{background:#fff;color:#1a3b2e;font-weight:400}
-.status-bar{display:flex;justify-content:space-between;align-items:center;color:#e0ffe0;font-size:.9rem;padding:0 4px;flex-wrap:wrap;gap:8px}
-.affection{display:flex;align-items:center;gap:8px}
-.affection-hearts{color:#ff9eb5;letter-spacing:2px;font-size:1.2rem}
-.chapter-info{font-size:.85rem;color:#c0e0c0;letter-spacing:1px}
+.status-bar{display:flex;justify-content:space-between;align-items:center;color:#e0ffe0;font-size:.88rem;padding:0 4px;flex-wrap:wrap;gap:8px}
+.affection{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.affection-planets{font-size:1.3rem;letter-spacing:2px}
+.chapter-info{font-size:.82rem;color:#b8e0c0;letter-spacing:1px;padding:4px 12px;background:rgba(255,255,255,.1);border-radius:20px}
 .sound-toggle{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
-.scene-area{position:relative;width:100%;height:260px;border:2px solid #fff;border-radius:32px;background:#1e3e2c;background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:flex-end;padding:16px 20px;box-shadow:inset 0 0 30px rgba(0,0,0,.5);transition:.3s}
-.bg-upload-label{position:absolute;bottom:14px;right:18px;background:rgba(255,255,255,.85);color:#1e3e2c;padding:6px 16px;border-radius:30px;font-size:.8rem;cursor:pointer;border:1px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2);transition:.2s;display:flex;align-items:center;gap:6px}
+.scene-area{position:relative;width:100%;height:250px;border:2px solid #fff;border-radius:32px;background:#1e3e2c;background-size:cover;background-position:center;background-repeat:no-repeat;display:flex;align-items:flex-end;padding:16px 20px;box-shadow:inset 0 0 30px rgba(0,0,0,.5);transition:.3s}
+.bg-upload-label{position:absolute;bottom:12px;right:16px;background:rgba(255,255,255,.9);color:#1e3e2c;padding:6px 14px;border-radius:30px;font-size:.78rem;cursor:pointer;border:1px solid #fff;box-shadow:0 4px 12px rgba(0,0,0,.2);transition:.2s;display:flex;align-items:center;gap:5px}
 .bg-upload-label:hover{background:#fff;color:#0a2a1a}
 .bg-upload-label input{display:none}
-.avatar-section{display:flex;align-items:center;gap:20px;padding:6px 0 0 8px}
-.avatar-box{width:90px;height:90px;border-radius:50%;border:3px solid #fff;background:#aad0b8;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.avatar-section{display:flex;align-items:center;gap:18px;padding:4px 0 0 6px;flex-wrap:wrap}
+.avatar-box{width:85px;height:85px;border-radius:50%;border:3px solid #fff;background:#aad0b8;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .avatar-box img{width:100%;height:100%;object-fit:cover;display:block}
-.avatar-default{font-size:3rem;color:#1e3e2c;font-weight:200;opacity:.8}
-.avatar-upload label{background:transparent;border:2px solid #fff;color:#fff;padding:6px 18px;border-radius:30px;font-size:.8rem;cursor:pointer;transition:.2s;text-align:center;backdrop-filter:blur(2px)}
+.avatar-default{font-size:2.8rem;color:#1e3e2c;font-weight:200;opacity:.8}
+.avatar-upload label{background:transparent;border:2px solid #fff;color:#fff;padding:6px 16px;border-radius:30px;font-size:.78rem;cursor:pointer;transition:.2s;text-align:center}
 .avatar-upload label:hover{background:#fff;color:#1a3b2e}
 .avatar-upload input{display:none}
-.dialogue-box{background:rgba(255,255,255,.88);border:2px solid #fff;border-radius:32px;padding:26px 28px;box-shadow:0 10px 25px rgba(0,0,0,.3);backdrop-filter:blur(8px);margin-top:6px}
-.speaker-name{font-size:1.2rem;font-weight:400;color:#1a4a2a;letter-spacing:2px;margin-bottom:8px;border-left:4px solid #1a4a2a;padding-left:12px}
-.dialogue-text{font-size:1.25rem;font-weight:300;color:#173e24;line-height:1.6;margin-bottom:28px;min-height:70px;word-break:break-word}
-.options-container{display:flex;flex-direction:column;gap:14px}
-.option-btn{background:#e4f3e4;border:2px solid #fff;border-radius:60px;padding:16px 24px;font-size:1.15rem;font-weight:300;color:#13381e;text-align:left;cursor:pointer;transition:.2s;box-shadow:0 4px 10px rgba(0,0,0,.1);display:flex;align-items:center;gap:12px}
+.dialogue-box{background:rgba(255,255,255,.9);border:2px solid #fff;border-radius:32px;padding:24px 26px;box-shadow:0 10px 25px rgba(0,0,0,.3);backdrop-filter:blur(8px);margin-top:4px}
+.speaker-name{font-size:1.15rem;font-weight:400;color:#1a4a2a;letter-spacing:2px;margin-bottom:6px;border-left:4px solid #1a4a2a;padding-left:12px}
+.dialogue-text{font-size:1.2rem;font-weight:300;color:#173e24;line-height:1.6;margin-bottom:24px;min-height:60px;word-break:break-word}
+.options-container{display:flex;flex-direction:column;gap:12px}
+.option-btn{background:#e4f3e4;border:2px solid #fff;border-radius:60px;padding:14px 22px;font-size:1.1rem;font-weight:300;color:#13381e;text-align:left;cursor:pointer;transition:.2s;box-shadow:0 4px 10px rgba(0,0,0,.1);display:flex;align-items:center;gap:12px}
 .option-btn:hover{background:#fff;border-color:#1a4a2a;transform:translateX(6px);box-shadow:0 8px 18px rgba(0,40,0,.2);font-weight:400}
-.option-btn span.opt-letter{font-weight:500;color:#1a4a2a;background:rgba(26,74,42,.15);width:30px;height:30px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;font-size:.95rem;flex-shrink:0}
-.memory-toast{text-align:right;font-size:.75rem;color:#d0f0d0;margin-top:4px;height:18px;opacity:.9}
-@media(max-width:600px){.game-container{padding:18px}.game-title{font-size:1.4rem;letter-spacing:3px}.dialogue-text{font-size:1.05rem}.option-btn{font-size:1rem;padding:12px 18px}.scene-area{height:180px}.avatar-box{width:70px;height:70px}}
+.option-btn span.opt-letter{font-weight:500;color:#1a4a2a;background:rgba(26,74,42,.15);width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;font-size:.9rem;flex-shrink:0}
+.memory-toast{text-align:right;font-size:.72rem;color:#d0f0d0;margin-top:4px;height:16px;opacity:.9}
+@media(max-width:600px){.game-container{padding:16px}.game-title{font-size:1.3rem;letter-spacing:2px}.dialogue-text{font-size:1rem}.option-btn{font-size:.95rem;padding:12px 16px}.scene-area{height:170px}.avatar-box{width:65px;height:65px}.chapter-info{font-size:.75rem}}
 </style>
 </head>
 <body>
@@ -52,14 +52,14 @@ body{min-height:100vh;background:linear-gradient(145deg,#1a3b2e 0%,#2a5a3e 100%)
 
   <div class="status-bar">
     <div class="affection">
-      <span>好感度</span>
-      <span class="affection-hearts" id="affectionDisplay">❤️❤️❤️🖤🖤</span>
+      <span>好感星球</span>
+      <span class="affection-planets" id="affectionDisplay">🪐🌍🌕⚫⚫</span>
     </div>
-    <div class="chapter-info" id="chapterInfo">第一章 · 初识</div>
+    <div class="chapter-info" id="chapterInfo">第一章 · 初遇</div>
     <div class="sound-toggle" id="soundToggle"><span>🔊 音效开启</span></div>
   </div>
 
-  <div class="scene-area" id="sceneArea" style="background-image:url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%232a5a3e\'/%3E%3Ccircle cx=\'400\' cy=\'200\' r=\'120\' fill=\'%234a8a5e\' opacity=\'0.3\'/%3E%3Ctext x=\'400\' y=\'220\' font-size=\'36\' fill=\'%23ffffff\' text-anchor=\'middle\' font-family=\'sans-serif\' font-weight=\'200\'%3E禹宙回响%3C/text%3E%3C/svg%3E');">
+  <div class="scene-area" id="sceneArea" style="background-image:url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%232a5a3e\'/%3E%3Ccircle cx=\'400\' cy=\'200\' r=\'120\' fill=\'%234a8a5e\' opacity=\'0.3\'/%3E%3Ctext x=\'400\' y=\'220\' font-size=\'34\' fill=\'%23ffffff\' text-anchor=\'middle\' font-family=\'sans-serif\' font-weight=\'200\'%3E禹宙回响%3C/text%3E%3C/svg%3E');">
     <label class="bg-upload-label" for="bgUpload">🖼️ 上传画面<input type="file" id="bgUpload" accept="image/*"></label>
   </div>
 
@@ -84,545 +84,441 @@ body{min-height:100vh;background:linear-gradient(145deg,#1a3b2e 0%,#2a5a3e 100%)
 
 <script>
 (function(){
-// ==================== 音频系统 ====================
+// ==================== 音频 ====================
 const AudioContext = window.AudioContext || window.webkitAudioContext;
-let audioCtx = null;
-let musicPlaying = false;
-let soundEnabled = true;
-let musicInterval = null;
+let audioCtx=null, musicPlaying=false, soundEnabled=true, musicInterval=null;
+function initAudio(){if(!audioCtx)audioCtx=new AudioContext();if(audioCtx.state==='suspended')audioCtx.resume();}
+function playTone(freq,dur=0.15,type='sine',vol=0.07){if(!soundEnabled)return;try{initAudio();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(vol,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+dur);o.connect(g);g.connect(audioCtx.destination);o.start();o.stop(audioCtx.currentTime+dur);}catch(e){}}
+function startBGM(){if(musicPlaying||!soundEnabled)return;try{initAudio();musicPlaying=true;const n=[261.63,293.66,329.63,349.23,392,349.23,329.63,293.66];let i=0;musicInterval=setInterval(()=>{if(!soundEnabled)return;playTone(n[i%n.length],0.6,'sine',0.022);i++;},800);}catch(e){}}
+function stopBGM(){if(musicInterval){clearInterval(musicInterval);musicInterval=null;}musicPlaying=false;}
 
-function initAudio(){
-  if(!audioCtx) audioCtx = new AudioContext();
-  if(audioCtx.state === 'suspended') audioCtx.resume();
-}
-function playTone(freq,duration=0.15,type='sine',volume=0.08){
-  if(!soundEnabled) return;
-  try{
-    initAudio();
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.type = type;
-    osc.frequency.value = freq;
-    gain.gain.setValueAtTime(volume,audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001,audioCtx.currentTime+duration);
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-    osc.start();
-    osc.stop(audioCtx.currentTime+duration);
-  }catch(e){}
-}
-function startBackgroundMusic(){
-  if(musicPlaying || !soundEnabled) return;
-  try{
-    initAudio();
-    musicPlaying = true;
-    const notes = [261.63,293.66,329.63,349.23,392.00,349.23,329.63,293.66];
-    let i = 0;
-    musicInterval = setInterval(()=>{
-      if(!soundEnabled) return;
-      playTone(notes[i%notes.length],0.6,'sine',0.025);
-      i++;
-    },800);
-  }catch(e){}
-}
-function stopBackgroundMusic(){
-  if(musicInterval){clearInterval(musicInterval);musicInterval=null;}
-  musicPlaying=false;
-}
-
-// ==================== 好感度 ====================
-let affection = 3;
-const MAX_AFFECTION = 5;
+// ==================== 好感星球 ====================
+let affection=3;
+const MAX_AFF=5;
 function updateAffectionDisplay(){
-  const h = '❤️'.repeat(affection)+'🖤'.repeat(MAX_AFFECTION-affection);
-  document.getElementById('affectionDisplay').textContent = h;
+  const map=['⚫','🌑','🌕','🌍','🪐'];
+  let str='';
+  for(let i=0;i<MAX_AFF;i++){
+    str += i<affection ? map[Math.min(i+1,4)] : '⚫';
+  }
+  document.getElementById('affectionDisplay').textContent=str;
 }
-function changeAffection(d){
-  affection = Math.max(0,Math.min(MAX_AFFECTION,affection+d));
-  updateAffectionDisplay();
-}
+function changeAffection(d){affection=Math.max(0,Math.min(MAX_AFF,affection+d));updateAffectionDisplay();}
 
-// ==================== 剧情 ====================
-// 章节标记：chapter 字段会在切换时更新顶部显示
+// ==================== 剧情（10章 · 张泽禹单线） ====================
 const story = {
-  // ========== 第一章 · 初识 ==========
-  start: {
-    chapter:"第一章 · 初识",
-    speaker:"张泽禹",
-    text:"（练习室门口，你抱着资料匆匆走过，不小心撞到了一个人）啊……对不起！你没事吧？",
+  // ========== 第一章 · 初遇 ==========
+  start:{
+    chapter:"第一章 · 初遇",speaker:"张泽禹",
+    text:"（练习室门口，你抱着一摞资料匆匆走过，不小心撞到了一个人）啊……对不起！你没事吧？",
     options:[
       {text:"抬头看他，愣住了",next:"ch1_look",affection:1},
       {text:"赶紧低头道歉",next:"ch1_apologize",affection:0},
       {text:"默默蹲下捡散落的纸",next:"ch1_pick",affection:1}
     ]
   },
-  ch1_look: {
-    chapter:"第一章 · 初识",
-    speaker:"张泽禹",
-    text:"（他笑了）没事没事，是我挡路了。你抱这么多东西，要去哪？我帮你吧。",
-    options:[
-      {text:"谢谢你，我自己可以",next:"ch1_help",affection:1},
-      {text:"那…麻烦你了",next:"ch1_help",affection:2}
-    ]
-  },
-  ch1_apologize: {
-    chapter:"第一章 · 初识",
-    speaker:"张泽禹",
-    text:"（他蹲下来帮你捡东西）真的没关系，别紧张。你手都红了，下次小心点。",
-    options:[
-      {text:"你人真好",next:"ch1_help",affection:2},
-      {text:"（不敢说话）",next:"ch1_help",affection:0}
-    ]
-  },
-  ch1_pick: {
-    chapter:"第一章 · 初识",
-    speaker:"张泽禹",
-    text:"（他也蹲下来一起捡）你东西挺多的，我帮你拿到教室吧？",
-    options:[
-      {text:"好，谢谢你",next:"ch1_help",affection:2},
-      {text:"不用了…",next:"ch1_help",affection:0}
-    ]
-  },
-  ch1_help: {
-    chapter:"第一章 · 初识",
-    speaker:"张泽禹",
-    text:"（他帮你把东西送到教室门口）对了，我叫张泽禹。你呢？",
-    options:[
-      {text:"告诉他你的名字",next:"ch1_name",affection:1},
-      {text:"笑了笑没说话",next:"ch1_name",affection:0}
-    ]
-  },
-  ch1_name: {
-    chapter:"第一章 · 初识",
-    speaker:"张泽禹",
-    text:"（他掏出手机）那…加个微信吧？以后有事可以找我。",
-    options:[
-      {text:"好啊，扫你",next:"ch1_wechat",affection:2},
-      {text:"下次吧",next:"ch1_wechat",affection:0}
-    ]
-  },
-  ch1_wechat: {
-    chapter:"第一章 · 初识",
-    speaker:"张泽禹",
-    text:"（他晃了晃手机）加上了。那…我先走了，记得早点休息。",
-    options:[
-      {text:"目送他离开",next:"ch2_start",affection:1},
-      {text:"喊住他说再见",next:"ch2_start",affection:1}
-    ]
-  },
+  ch1_look:{chapter:"第一章 · 初遇",speaker:"张泽禹",text:"（他笑了）没事没事，是我挡路了。你抱这么多东西，要去哪？我帮你吧。",options:[
+    {text:"谢谢你，我自己可以",next:"ch1_help",affection:1},
+    {text:"那…麻烦你了",next:"ch1_help",affection:2}
+  ]},
+  ch1_apologize:{chapter:"第一章 · 初遇",speaker:"张泽禹",text:"（他蹲下来帮你捡东西）真的没关系，别紧张。你手都红了，下次小心点。",options:[
+    {text:"你人真好",next:"ch1_help",affection:2},
+    {text:"（不敢说话）",next:"ch1_help",affection:0}
+  ]},
+  ch1_pick:{chapter:"第一章 · 初遇",speaker:"张泽禹",text:"（他也蹲下来一起捡）你东西挺多的，我帮你拿到教室吧？",options:[
+    {text:"好，谢谢你",next:"ch1_help",affection:2},
+    {text:"不用了…",next:"ch1_help",affection:0}
+  ]},
+  ch1_help:{chapter:"第一章 · 初遇",speaker:"张泽禹",text:"（他帮你把东西送到教室门口）对了，我叫张泽禹。你呢？",options:[
+    {text:"告诉他你的名字",next:"ch1_name",affection:1},
+    {text:"笑了笑没说话",next:"ch1_name",affection:0}
+  ]},
+  ch1_name:{chapter:"第一章 · 初遇",speaker:"张泽禹",text:"（他掏出手机）那…加个微信吧？以后有事可以找我。",options:[
+    {text:"好啊，扫你",next:"ch1_wechat",affection:2},
+    {text:"下次吧",next:"ch1_wechat",affection:0}
+  ]},
+  ch1_wechat:{chapter:"第一章 · 初遇",speaker:"张泽禹",text:"（他晃了晃手机）加上了。那…我先走了，记得早点休息。",options:[
+    {text:"目送他离开",next:"ch2_start",affection:1},
+    {text:"喊住他说再见",next:"ch2_start",affection:1}
+  ]},
 
-  // ========== 第二章 · 相知 ==========
-  ch2_start: {
-    chapter:"第二章 · 相知",
-    speaker:"张泽禹",
-    text:"（几天后，微信弹出一条消息）在吗？今天练习室旁边的奶茶店买一送一，你要不要来？",
+  // ========== 第二章 · 偶遇 ==========
+  ch2_start:{
+    chapter:"第二章 · 偶遇",speaker:"张泽禹",
+    text:"（几天后，你路过便利店，看到一个熟悉的身影正在买水）诶？是你啊。好巧。",
     options:[
-      {text:"马上答应",next:"ch2_meet",affection:2},
-      {text:"犹豫了一下",next:"ch2_meet",affection:1},
-      {text:"说今天有事",next:"ch2_skip",affection:-1}
+      {text:"真的好巧！",next:"ch2_store",affection:1},
+      {text:"装作没看见",next:"ch2_ignore",affection:-1},
+      {text:"主动打招呼",next:"ch2_store",affection:2}
     ]
   },
-  ch2_skip: {
-    chapter:"第二章 · 相知",
-    speaker:"张泽禹",
-    text:"（他回了个“好”的表情）没关系，下次再约你。",
-    options:[
-      {text:"感觉有点抱歉",next:"ch2_meet",affection:1},
-      {text:"继续忙自己的事",next:"ch2_meet",affection:0}
-    ]
-  },
-  ch2_meet: {
-    chapter:"第二章 · 相知",
-    speaker:"张泽禹",
-    text:"（奶茶店里，他把一杯递给你）我猜你喜欢三分糖，对不对？",
-    options:[
-      {text:"你怎么知道？",next:"ch2_chat",affection:2},
-      {text:"其实我喜欢全糖",next:"ch2_chat",affection:1},
-      {text:"谢谢…",next:"ch2_chat",affection:1}
-    ]
-  },
-  ch2_chat: {
-    chapter:"第二章 · 相知",
-    speaker:"张泽禹",
-    text:"（他托着下巴看你）我观察你很久了。你每次路过练习室，都会往里面看一眼。",
-    options:[
-      {text:"被发现了…",next:"ch2_deep",affection:2},
-      {text:"才没有",next:"ch2_deep",affection:1}
-    ]
-  },
-  ch2_deep: {
-    chapter:"第二章 · 相知",
-    speaker:"张泽禹",
-    text:"（他轻声说）其实我也一样。每次你路过，我都会停下来看。",
-    options:[
-      {text:"脸红了",next:"ch2_end",affection:2},
-      {text:"转移话题",next:"ch2_end",affection:0}
-    ]
-  },
-  ch2_end: {
-    chapter:"第二章 · 相知",
-    speaker:"张泽禹",
-    text:"（他送你到楼下）今天很开心。下次…还能约你吗？",
-    options:[
-      {text:"当然可以",next:"ch3_start",affection:2},
-      {text:"看情况吧",next:"ch3_start",affection:0}
-    ]
-  },
+  ch2_ignore:{chapter:"第二章 · 偶遇",speaker:"张泽禹",text:"（他好像看到了你，但没追过来。只是轻轻笑了一下）",options:[
+    {text:"有点后悔",next:"ch2_store",affection:1},
+    {text:"继续走",next:"ch2_store",affection:0}
+  ]},
+  ch2_store:{chapter:"第二章 · 偶遇",speaker:"张泽禹",text:"（他把一瓶水递给你）给，我请客。这么晚了还一个人？",options:[
+    {text:"谢谢你，我刚好渴了",next:"ch2_chat",affection:2},
+    {text:"不用了，我自己买",next:"ch2_chat",affection:0}
+  ]},
+  ch2_chat:{chapter:"第二章 · 偶遇",speaker:"张泽禹",text:"（他靠在货架边）其实我经常在这家店买水。没想到会遇见你。",options:[
+    {text:"那以后可以一起买",next:"ch2_end",affection:2},
+    {text:"缘分吧",next:"ch2_end",affection:1}
+  ]},
+  ch2_end:{chapter:"第二章 · 偶遇",speaker:"张泽禹",text:"（他笑了笑）嗯，缘分。那我先走了。下次…说不定还会遇见。",options:[
+    {text:"目送他离开",next:"ch3_start",affection:1},
+    {text:"叫住他多说几句",next:"ch3_start",affection:2}
+  ]},
 
-  // ========== 第三章 · 相爱 ==========
-  ch3_start: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
+  // ========== 第三章 · 相知 ==========
+  ch3_start:{
+    chapter:"第三章 · 相知",speaker:"张泽禹",
+    text:"（微信弹出一条消息）在吗？今天练习室旁边的奶茶店买一送一，你要不要来？",
+    options:[
+      {text:"马上答应",next:"ch3_meet",affection:2},
+      {text:"犹豫了一下",next:"ch3_meet",affection:1},
+      {text:"说今天有事",next:"ch3_skip",affection:-1}
+    ]
+  },
+  ch3_skip:{chapter:"第三章 · 相知",speaker:"张泽禹",text:"（他回了个“好”的表情）没关系，下次再约你。",options:[
+    {text:"感觉有点抱歉",next:"ch3_meet",affection:1},
+    {text:"继续忙自己的事",next:"ch3_meet",affection:0}
+  ]},
+  ch3_meet:{chapter:"第三章 · 相知",speaker:"张泽禹",text:"（奶茶店里，他把一杯递给你）我猜你喜欢三分糖，对不对？",options:[
+    {text:"你怎么知道？",next:"ch3_chat",affection:2},
+    {text:"其实我喜欢全糖",next:"ch3_chat",affection:1},
+    {text:"谢谢…",next:"ch3_chat",affection:1}
+  ]},
+  ch3_chat:{chapter:"第三章 · 相知",speaker:"张泽禹",text:"（他托着下巴看你）我观察你很久了。你每次路过练习室，都会往里面看一眼。",options:[
+    {text:"被发现了…",next:"ch3_deep",affection:2},
+    {text:"才没有",next:"ch3_deep",affection:1}
+  ]},
+  ch3_deep:{chapter:"第三章 · 相知",speaker:"张泽禹",text:"（他轻声说）其实我也一样。每次你路过，我都会停下来看。",options:[
+    {text:"脸红了",next:"ch3_end",affection:2},
+    {text:"转移话题",next:"ch3_end",affection:0}
+  ]},
+  ch3_end:{chapter:"第三章 · 相知",speaker:"张泽禹",text:"（他送你到楼下）今天很开心。下次…还能约你吗？",options:[
+    {text:"当然可以",next:"ch4_start",affection:2},
+    {text:"看情况吧",next:"ch4_start",affection:0}
+  ]},
+
+  // ========== 第四章 · 心动 ==========
+  ch4_start:{
+    chapter:"第四章 · 心动",speaker:"张泽禹",
+    text:"（一天傍晚，他约你去天台看星星）今天的星星特别亮。我小时候最喜欢看星星了。",
+    options:[
+      {text:"我也喜欢",next:"ch4_star",affection:2},
+      {text:"你还会看星星啊",next:"ch4_star",affection:1}
+    ]
+  },
+  ch4_star:{chapter:"第四章 · 心动",speaker:"张泽禹",text:"（他指着天空）那颗最亮的，像你。",options:[
+    {text:"（心跳加速）",next:"ch4_heart",affection:2},
+    {text:"别乱说",next:"ch4_heart",affection:0}
+  ]},
+  ch4_heart:{chapter:"第四章 · 心动",speaker:"张泽禹",text:"（他转过头看你）我说真的。每次看到你，心里就像有星星亮起来。",options:[
+    {text:"我也是…",next:"ch4_end",affection:2},
+    {text:"（沉默）",next:"ch4_end",affection:0}
+  ]},
+  ch4_end:{chapter:"第四章 · 心动",speaker:"张泽禹",text:"（他握了握拳，像在给自己打气）那…我下次可以牵你的手吗？",options:[
+    {text:"可以",next:"ch5_start",affection:2},
+    {text:"再等等",next:"ch5_start",affection:0}
+  ]},
+
+  // ========== 第五章 · 告白 ==========
+  ch5_start:{
+    chapter:"第五章 · 告白",speaker:"张泽禹",
     text:"（又是一个傍晚，他约你到天台）我有话想对你说。其实……我喜欢你。",
     options:[
-      {text:"答应他",next:"ch3_accept",affection:2},
-      {text:"拒绝他",next:"ch3_reject",affection:-2},
-      {text:"沉默",next:"ch3_silent",affection:0}
+      {text:"答应他",next:"ch5_accept",affection:2},
+      {text:"拒绝他",next:"ch5_reject",affection:-2},
+      {text:"沉默",next:"ch5_silent",affection:0}
     ]
   },
+  ch5_accept:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"真的吗？我好开心…… 谢谢你愿意走向我。",options:[
+    {text:"我也很喜欢你",next:"ch5_accept2",affection:2},
+    {text:"以后要一直在一起",next:"ch5_accept2",affection:2}
+  ]},
+  ch5_accept2:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"那…我们去看海好不好？就我们两个。",options:[
+    {text:"好呀，现在就去",next:"ch6_start",affection:1},
+    {text:"改天吧，今天有点累",next:"ch6_alt",affection:-1}
+  ]},
+  ch5_reject:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"……好吧，我明白了。但还是希望你幸福。",options:[
+    {text:"对不起",next:"ch5_reject2",affection:-1},
+    {text:"我们还是朋友",next:"ch5_reject2",affection:0}
+  ]},
+  ch5_reject2:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"嗯，朋友也挺好的。至少还能看见你笑。",options:[
+    {text:"你值得更好的人",next:"sadEnd",affection:0},
+    {text:"其实我撒谎了…",next:"ch5_secret",affection:2}
+  ]},
+  ch5_secret:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"你说什么…？你刚刚说的是真的吗？",options:[
+    {text:"是真的，我喜欢你",next:"ch6_start",affection:2},
+    {text:"对不起，我开玩笑的",next:"sadEnd",affection:-2}
+  ]},
+  ch5_silent:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"……沉默也没关系。我会等，等到你愿意回答的那天。",options:[
+    {text:"抬起头看他",next:"ch5_silent2",affection:1},
+    {text:"转身离开",next:"sadEnd",affection:-1}
+  ]},
+  ch5_silent2:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"你眼睛红了…… 别哭，我还在呢。",options:[
+    {text:"抱住他",next:"ch5_silent3",affection:2},
+    {text:"擦擦眼泪",next:"ch5_silent3",affection:1}
+  ]},
+  ch5_silent3:{chapter:"第五章 · 告白",speaker:"张泽禹",text:"不管多久，我都会在你身边。这是承诺。",options:[
+    {text:"我相信你",next:"ch6_start",affection:2},
+    {text:"让我想想",next:"sadEnd",affection:0}
+  ]},
 
-  // --- 答应线 ---
-  ch3_accept: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"真的吗？我好开心…… 谢谢你愿意走向我。",
+  // ========== 第六章 · 恋爱初期 ==========
+  ch6_start:{
+    chapter:"第六章 · 恋爱初期",speaker:"张泽禹",
+    text:"（海边的傍晚，你们并肩坐着）以后每一个练习室的傍晚，我都想和你一起走。",
     options:[
-      {text:"我也很喜欢你",next:"ch3_accept_2",affection:2},
-      {text:"以后要一直在一起",next:"ch3_accept_2",affection:2}
+      {text:"好啊，每天都要",next:"ch6_daily",affection:2},
+      {text:"你先好好练习",next:"ch6_daily",affection:1}
     ]
   },
-  ch3_accept_2: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"那…我们去看海好不好？就我们两个。",
-    options:[
-      {text:"好呀，现在就去",next:"ch3_accept_3",affection:1},
-      {text:"改天吧，今天有点累",next:"ch3_accept_3_alt",affection:-1}
-    ]
-  },
-  ch3_accept_3: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"（他轻轻牵起你的手）海风很舒服，就像你一样。",
-    options:[
-      {text:"靠在他肩上",next:"ch4_start",affection:2},
-      {text:"对他笑一笑",next:"ch4_start",affection:1}
-    ]
-  },
-  ch3_accept_3_alt: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"没关系，我等你。什么时候都可以。",
-    options:[
-      {text:"谢谢你理解我",next:"ch4_start",affection:1},
-      {text:"其实…现在也可以去",next:"ch3_accept_3",affection:2}
-    ]
-  },
+  ch6_alt:{chapter:"第六章 · 恋爱初期",speaker:"张泽禹",text:"没关系，我等你。什么时候都可以。",options:[
+    {text:"谢谢你理解我",next:"ch6_daily",affection:1},
+    {text:"其实…现在也可以去",next:"ch6_start",affection:2}
+  ]},
+  ch6_daily:{chapter:"第六章 · 恋爱初期",speaker:"张泽禹",text:"（他握着你的手）你冷吗？我把外套给你。",options:[
+    {text:"不用，我不冷",next:"ch6_warm",affection:1},
+    {text:"好，谢谢",next:"ch6_warm",affection:2}
+  ]},
+  ch6_warm:{chapter:"第六章 · 恋爱初期",speaker:"张泽禹",text:"（他轻轻抱住你）这样就不冷了。",options:[
+    {text:"（靠在他怀里）",next:"ch7_start",affection:2},
+    {text:"（有点害羞）",next:"ch7_start",affection:1}
+  ]},
 
-  // --- 拒绝线 ---
-  ch3_reject: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"……好吧，我明白了。但还是希望你幸福。",
+  // ========== 第七章 · 吃醋 ==========
+  ch7_start:{
+    chapter:"第七章 · 吃醋",speaker:"张泽禹",
+    text:"（今天你和一位男同学在教室门口有说有笑。张泽禹站在不远处，手插在口袋里，表情有点不自然）",
     options:[
-      {text:"对不起",next:"ch3_reject_2",affection:-1},
-      {text:"我们还是朋友",next:"ch3_reject_2",affection:0}
+      {text:"主动走过去打招呼",next:"ch7_approach",affection:2},
+      {text:"继续和同学聊天",next:"ch7_ignore",affection:-1},
+      {text:"注意到他，对他笑一笑",next:"ch7_smile",affection:1}
     ]
   },
-  ch3_reject_2: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"嗯，朋友也挺好的。至少还能看见你笑。",
-    options:[
-      {text:"你值得更好的人",next:"sadEnd",affection:0},
-      {text:"其实我撒谎了…",next:"ch3_secret",affection:2}
-    ]
-  },
-  ch3_secret: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"你说什么…？你刚刚说的是真的吗？",
-    options:[
-      {text:"是真的，我喜欢你",next:"ch4_start",affection:2},
-      {text:"对不起，我开玩笑的",next:"sadEnd",affection:-2}
-    ]
-  },
+  ch7_ignore:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（他转身走了。你发消息问他，他只回了两个字：没事。）",options:[
+    {text:"追上去问他怎么了",next:"ch7_chase",affection:2},
+    {text:"那就等他冷静吧",next:"ch7_cool",affection:-1}
+  ]},
+  ch7_cool:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（晚上他发来一条消息：“你今天和那个同学…聊得很开心啊。”）",options:[
+    {text:"只是普通同学啦",next:"ch7_explain",affection:1},
+    {text:"你在吃醋吗？",next:"ch7_tease",affection:2}
+  ]},
+  ch7_approach:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（他看到你走过来，表情缓和了一点，但嘴上还是）你聊完了？",options:[
+    {text:"聊完了，想你了",next:"ch7_sweet",affection:2},
+    {text:"只是同学，别多想",next:"ch7_explain",affection:1}
+  ]},
+  ch7_smile:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（他看到你对他笑，嘴角动了动，但还是别过头）哼。",options:[
+    {text:"走过去挽住他的手",next:"ch7_sweet",affection:2},
+    {text:"继续和同学说话",next:"ch7_ignore",affection:-1}
+  ]},
+  ch7_chase:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（你追上他）我没事。就是…看到你和别人笑那么开心，心里有点不舒服。",options:[
+    {text:"那以后我只对你笑",next:"ch7_sweet",affection:2},
+    {text:"你有点小气诶",next:"ch7_tease",affection:1}
+  ]},
+  ch7_explain:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（他低头踢了踢石子）我知道。可是…我就是会忍不住在意。",options:[
+    {text:"我懂，以后我会注意",next:"ch7_sweet",affection:2},
+    {text:"你想太多了",next:"ch7_cool",affection:-1}
+  ]},
+  ch7_tease:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（他耳朵红了）谁吃醋了！我只是…只是觉得你笑得太好看了。",options:[
+    {text:"只给你一个人看",next:"ch7_sweet",affection:2},
+    {text:"（忍不住笑）",next:"ch7_sweet",affection:1}
+  ]},
+  ch7_sweet:{chapter:"第七章 · 吃醋",speaker:"张泽禹",text:"（他轻轻拉住你的手腕）那说好了。以后你身边的位置，只留给我。",options:[
+    {text:"好，一言为定",next:"ch8_start",affection:2},
+    {text:"你也要做到哦",next:"ch8_start",affection:1}
+  ]},
 
-  // --- 沉默线 ---
-  ch3_silent: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"……沉默也没关系。我会等，等到你愿意回答的那天。",
+  // ========== 第八章 · 撒娇 ==========
+  ch8_start:{
+    chapter:"第八章 · 撒娇",speaker:"张泽禹",
+    text:"（周末，他发消息：今天好累啊，练习了一整天。你回他：那早点休息。他秒回：可是想见你。）",
     options:[
-      {text:"抬起头看他",next:"ch3_silent_2",affection:1},
-      {text:"转身离开",next:"sadEnd",affection:-1}
+      {text:"那我现在来找你",next:"ch8_come",affection:2},
+      {text:"明天见啦",next:"ch8_tomorrow",affection:0},
+      {text:"给你点杯奶茶",next:"ch8_milktea",affection:1}
     ]
   },
-  ch3_silent_2: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"你眼睛红了…… 别哭，我还在呢。",
-    options:[
-      {text:"抱住他",next:"ch3_silent_3",affection:2},
-      {text:"擦擦眼泪",next:"ch3_silent_3",affection:1}
-    ]
-  },
-  ch3_silent_3: {
-    chapter:"第三章 · 相爱",
-    speaker:"张泽禹",
-    text:"不管多久，我都会在你身边。这是承诺。",
-    options:[
-      {text:"我相信你",next:"ch4_start",affection:2},
-      {text:"让我想想",next:"sadEnd",affection:0}
-    ]
-  },
+  ch8_come:{chapter:"第八章 · 撒娇",speaker:"张泽禹",text:"（你到了练习室门口，他小跑过来）你真的来了。我就知道你最好了。",options:[
+    {text:"谁让某人想我了呢",next:"ch8_hug",affection:2},
+    {text:"顺路而已",next:"ch8_hug",affection:1}
+  ]},
+  ch8_tomorrow:{chapter:"第八章 · 撒娇",speaker:"张泽禹",text:"（他发了个委屈的表情）好吧。那明天一定要来找我。",options:[
+    {text:"知道啦，答应你",next:"ch8_start2",affection:1},
+    {text:"你好像小朋友",next:"ch8_start2",affection:2}
+  ]},
+  ch8_milktea:{chapter:"第八章 · 撒娇",speaker:"张泽禹",text:"（他收到奶茶后发来语音）你怎么这么懂我。以后谁娶了你可真幸福。",options:[
+    {text:"那你呢？",next:"ch8_start2",affection:2},
+    {text:"少贫嘴",next:"ch8_start2",affection:1}
+  ]},
+  ch8_hug:{chapter:"第八章 · 撒娇",speaker:"张泽禹",text:"（他抱住你，头靠在你肩上）再让我抱一会儿。就一会儿。",options:[
+    {text:"（摸摸他的头）",next:"ch8_start2",affection:2},
+    {text:"这里有人呢…",next:"ch8_start2",affection:1}
+  ]},
+  ch8_start2:{chapter:"第八章 · 撒娇",speaker:"张泽禹",text:"（他笑着看你）以后累了的时候，第一个想见的人，可以是你吗？",options:[
+    {text:"当然可以",next:"ch9_start",affection:2},
+    {text:"看你表现",next:"ch9_start",affection:1}
+  ]},
 
-  // ========== 第四章 · 相守 ==========
-  ch4_start: {
-    chapter:"第四章 · 相守",
-    speaker:"张泽禹",
+  // ========== 第九章 · 误会与和好 ==========
+  ch9_start:{
+    chapter:"第九章 · 误会与和好",speaker:"张泽禹",
+    text:"（你无意间看到他和一个女生在练习室说话，女生还拍了他的肩膀。你心里有点不是滋味。）",
+    options:[
+      {text:"直接问他",next:"ch9_ask",affection:2},
+      {text:"装作没看见",next:"ch9_hide",affection:-1},
+      {text:"找朋友打听",next:"ch9_ask",affection:1}
+    ]
+  },
+  ch9_hide:{chapter:"第九章 · 误会与和好",speaker:"张泽禹",text:"（他察觉到你情绪不对）怎么了？你今天好像不太开心。",options:[
+    {text:"没事",next:"ch9_cold",affection:-1},
+    {text:"你刚才和谁在一起？",next:"ch9_ask",affection:1}
+  ]},
+  ch9_cold:{chapter:"第九章 · 误会与和好",speaker:"张泽禹",text:"（他有点着急）你不说我怎么会知道？别让我猜好不好。",options:[
+    {text:"那我说了，你别生气",next:"ch9_ask",affection:1},
+    {text:"（转身走）",next:"ch9_break",affection:-2}
+  ]},
+  ch9_ask:{chapter:"第九章 · 误会与和好",speaker:"张泽禹",text:"（他愣了一下，然后笑了）那是我妹妹。她来给我送东西。你…该不会吃醋了吧？",options:[
+    {text:"才没有！",next:"ch9_happy",affection:1},
+    {text:"是又怎样",next:"ch9_happy",affection:2}
+  ]},
+  ch9_break:{chapter:"第九章 · 误会与和好",speaker:"张泽禹",text:"（他拉住你的手）别走。你听我解释。我从来没想过让你难过。",options:[
+    {text:"那你解释吧",next:"ch9_ask",affection:1},
+    {text:"我不想听",next:"sadEnd",affection:-2}
+  ]},
+  ch9_happy:{chapter:"第九章 · 误会与和好",speaker:"张泽禹",text:"（他揉了揉你的头发）吃醋的你，好可爱。以后有事直接问我，我全部告诉你。",options:[
+    {text:"说到做到",next:"ch10_start",affection:2},
+    {text:"这还差不多",next:"ch10_start",affection:1}
+  ]},
+
+  // ========== 第十章 · 未来 ==========
+  ch10_start:{
+    chapter:"第十章 · 未来",speaker:"张泽禹",
     text:"（几个月后，你们坐在常去的那家奶茶店里）时间过得好快。从第一次见你到现在，好像一转眼。",
     options:[
-      {text:"我也觉得",next:"ch4_daily",affection:1},
-      {text:"还记得你第一次帮我捡东西",next:"ch4_daily",affection:2}
+      {text:"我也觉得",next:"ch10_daily",affection:1},
+      {text:"还记得你第一次帮我捡东西",next:"ch10_daily",affection:2}
     ]
   },
-  ch4_daily: {
-    chapter:"第四章 · 相守",
-    speaker:"张泽禹",
-    text:"（他握着你的手）以后每一个练习室的傍晚，我都想和你一起走。",
-    options:[
-      {text:"好啊，每天都要",next:"ch4_future",affection:2},
-      {text:"你先好好练习",next:"ch4_future",affection:1}
-    ]
-  },
-  ch4_future: {
-    chapter:"第四章 · 相守",
-    speaker:"张泽禹",
-    text:"（他认真地看着你）不管以后发生什么，我都会牵着你的手。你信我吗？",
-    options:[
-      {text:"我信你",next:"final_choice",affection:2},
-      {text:"看你表现",next:"final_choice",affection:1}
-    ]
-  },
+  ch10_daily:{chapter:"第十章 · 未来",speaker:"张泽禹",text:"（他认真地看着你）不管以后发生什么，我都会牵着你的手。你信我吗？",options:[
+    {text:"我信你",next:"final_choice",affection:2},
+    {text:"看你表现",next:"final_choice",affection:1}
+  ]},
+  final_choice:{chapter:"第十章 · 未来",speaker:"张泽禹",text:"那…你愿意一直陪着我吗？",options:[
+    {text:"永远在一起",next:"happyEnd",affection:2},
+    {text:"先做好眼前的事",next:"normalEnd",affection:0}
+  ]},
 
-  // ========== 最终结局 ==========
-  final_choice: {
-    chapter:"第四章 · 相守",
-    speaker:"张泽禹",
-    text:"那…你愿意一直陪着我吗？",
-    options:[
-      {text:"永远在一起",next:"happyEnd",affection:2},
-      {text:"先做好眼前的事",next:"normalEnd",affection:0}
-    ]
-  },
-
-  happyEnd: {
-    chapter:"结局 · 禹宙回响",
-    speaker:"张泽禹",
-    text:"禹宙很大，但我的回响只为你。✨ 谢谢你，成为我宇宙里最亮的那颗星。",
-    options:[{text:"重新开始",next:"start",affection:0}]
-  },
-  normalEnd: {
-    chapter:"结局 · 细水长流",
-    speaker:"张泽禹",
-    text:"嗯，慢慢来。只要你在，我就很安心。🌿",
-    options:[{text:"重新开始",next:"start",affection:0}]
-  },
-  sadEnd: {
-    chapter:"结局 · 风的方向",
-    speaker:"张泽禹",
-    text:"也许有些故事注定要停在风里。再见。🍃",
-    options:[{text:"重新开始",next:"start",affection:0}]
-  }
+  // ========== 结局 ==========
+  happyEnd:{chapter:"结局 · 禹宙回响",speaker:"张泽禹",text:"禹宙很大，但我的回响只为你。✨ 谢谢你，成为我宇宙里最亮的那颗星。",options:[
+    {text:"重新开始",next:"start",affection:0}
+  ]},
+  normalEnd:{chapter:"结局 · 细水长流",speaker:"张泽禹",text:"嗯，慢慢来。只要你在，我就很安心。🌿",options:[
+    {text:"重新开始",next:"start",affection:0}
+  ]},
+  sadEnd:{chapter:"结局 · 风的方向",speaker:"张泽禹",text:"也许有些故事注定要停在风里。再见。🍃",options:[
+    {text:"重新开始",next:"start",affection:0}
+  ]}
 };
 
 // ==================== 状态 ====================
-let currentNodeId = "start";
-let soundToggleState = true;
-
-const speakerNameEl = document.getElementById('speakerName');
-const dialogueTextEl = document.getElementById('dialogueText');
-const optionsContainer = document.getElementById('optionsContainer');
-const sceneArea = document.getElementById('sceneArea');
-const avatarImg = document.getElementById('avatarImg');
-const avatarDefault = document.getElementById('avatarDefault');
-const memoryToast = document.getElementById('memoryToast');
-const soundToggle = document.getElementById('soundToggle');
-const chapterInfo = document.getElementById('chapterInfo');
-const affectionDisplay = document.getElementById('affectionDisplay');
-
-const bgUpload = document.getElementById('bgUpload');
-const avatarUpload = document.getElementById('avatarUpload');
-const saveBtn = document.getElementById('saveBtn');
-const loadBtn = document.getElementById('loadBtn');
-
-const STORAGE_KEY = 'yuzhou_memory_save_v3';
+let currentNodeId="start";
+const speakerNameEl=document.getElementById('speakerName');
+const dialogueTextEl=document.getElementById('dialogueText');
+const optionsContainer=document.getElementById('optionsContainer');
+const sceneArea=document.getElementById('sceneArea');
+const avatarImg=document.getElementById('avatarImg');
+const avatarDefault=document.getElementById('avatarDefault');
+const memoryToast=document.getElementById('memoryToast');
+const soundToggle=document.getElementById('soundToggle');
+const chapterInfo=document.getElementById('chapterInfo');
+const affectionDisplay=document.getElementById('affectionDisplay');
+const bgUpload=document.getElementById('bgUpload');
+const avatarUpload=document.getElementById('avatarUpload');
+const saveBtn=document.getElementById('saveBtn');
+const loadBtn=document.getElementById('loadBtn');
+const STORAGE_KEY='yuzhou_memory_save_v6';
 
 // ==================== 渲染 ====================
 function renderNode(nodeId){
-  const node = story[nodeId];
+  const node=story[nodeId];
   if(!node){console.warn('节点不存在');return renderNode('start');}
-  currentNodeId = nodeId;
-
-  if(node.chapter) chapterInfo.textContent = node.chapter;
-
-  speakerNameEl.textContent = node.speaker || '张泽禹';
-  dialogueTextEl.textContent = node.text || '';
-
-  optionsContainer.innerHTML = '';
-  node.options.forEach((opt,index)=>{
-    const btn = document.createElement('button');
-    btn.className = 'option-btn';
-
-    const letter = String.fromCharCode(65+index);
-    const ls = document.createElement('span');
-    ls.className = 'opt-letter';
-    ls.textContent = letter;
-
-    const ts = document.createElement('span');
-    ts.textContent = opt.text;
-
-    btn.appendChild(ls);
-    btn.appendChild(ts);
-
+  currentNodeId=nodeId;
+  if(node.chapter)chapterInfo.textContent=node.chapter;
+  speakerNameEl.textContent=node.speaker||'张泽禹';
+  dialogueTextEl.textContent=node.text||'';
+  optionsContainer.innerHTML='';
+  node.options.forEach((opt,idx)=>{
+    const btn=document.createElement('button');
+    btn.className='option-btn';
+    const ls=document.createElement('span');
+    ls.className='opt-letter';
+    ls.textContent=String.fromCharCode(65+idx);
+    const ts=document.createElement('span');
+    ts.textContent=opt.text;
+    btn.appendChild(ls);btn.appendChild(ts);
     btn.addEventListener('click',()=>{
       playTone(523.25,0.1,'sine',0.06);
-      if(opt.affection) changeAffection(opt.affection);
-      if(opt.next === 'happyEnd' && affection >= 4){
-        setTimeout(()=>playTone(784,0.3,'sine',0.1),200);
-      }
+      if(opt.affection)changeAffection(opt.affection);
+      if(opt.next==='happyEnd'&&affection>=4)setTimeout(()=>playTone(784,0.3,'sine',0.1),200);
       renderNode(opt.next);
     });
-
     optionsContainer.appendChild(btn);
   });
-
   playTone(392,0.08,'sine',0.04);
 }
 
 // ==================== 存档 ====================
 function saveMemory(){
-  const bg = sceneArea.style.backgroundImage;
-  const av = avatarImg.src;
-  const hasAv = avatarImg.style.display !== 'none' && avatarImg.src !== '';
-  const mem = {
-    currentNodeId,
-    backgroundImage:bg,
-    avatarSrc:av,
-    showAvatar:hasAv,
-    affection,
-    soundEnabled,
-    timestamp:Date.now()
-  };
+  const bg=sceneArea.style.backgroundImage;
+  const av=avatarImg.src;
+  const hasAv=avatarImg.style.display!=='none'&&avatarImg.src!=='';
+  const mem={currentNodeId,backgroundImage:bg,avatarSrc:av,showAvatar:hasAv,affection,soundEnabled,timestamp:Date.now()};
   localStorage.setItem(STORAGE_KEY,JSON.stringify(mem));
-  memoryToast.textContent = '✓ 记忆已封存 · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+  memoryToast.textContent='✓ 记忆已封存 · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
   setTimeout(()=>{memoryToast.textContent='';},3000);
   playTone(659.25,0.2,'triangle',0.08);
 }
-
 function loadMemory(){
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if(!saved){
-    memoryToast.textContent = '✗ 暂无记忆存档';
-    setTimeout(()=>{memoryToast.textContent='';},2000);
-    return;
-  }
+  const saved=localStorage.getItem(STORAGE_KEY);
+  if(!saved){memoryToast.textContent='✗ 暂无记忆存档';setTimeout(()=>{memoryToast.textContent='';},2000);return;}
   try{
-    const m = JSON.parse(saved);
-    if(m.currentNodeId && story[m.currentNodeId]) renderNode(m.currentNodeId);
-    else renderNode('start');
-
-    if(m.backgroundImage) sceneArea.style.backgroundImage = m.backgroundImage;
-
-    if(m.avatarSrc && m.showAvatar){
-      avatarImg.src = m.avatarSrc;
-      avatarImg.style.display = 'block';
-      avatarDefault.style.display = 'none';
-    }else{
-      avatarImg.style.display = 'none';
-      avatarDefault.style.display = 'block';
-      avatarImg.src = '';
-    }
-
-    if(typeof m.affection === 'number'){
-      affection = m.affection;
-      updateAffectionDisplay();
-    }
-    if(typeof m.soundEnabled === 'boolean'){
-      soundEnabled = m.soundEnabled;
-      updateSoundUI();
-    }
-
-    memoryToast.textContent = '↺ 记忆已读取 · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    const m=JSON.parse(saved);
+    if(m.currentNodeId&&story[m.currentNodeId])renderNode(m.currentNodeId);else renderNode('start');
+    if(m.backgroundImage)sceneArea.style.backgroundImage=m.backgroundImage;
+    if(m.avatarSrc&&m.showAvatar){avatarImg.src=m.avatarSrc;avatarImg.style.display='block';avatarDefault.style.display='none';}
+    else{avatarImg.style.display='none';avatarDefault.style.display='block';avatarImg.src='';}
+    if(typeof m.affection==='number'){affection=m.affection;updateAffectionDisplay();}
+    if(typeof m.soundEnabled==='boolean'){soundEnabled=m.soundEnabled;updateSoundUI();}
+    memoryToast.textContent='↺ 记忆已读取 · '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
     setTimeout(()=>{memoryToast.textContent='';},3000);
     playTone(523.25,0.25,'sine',0.08);
-  }catch(e){
-    console.error(e);
-    memoryToast.textContent = '✗ 记忆损坏';
-    setTimeout(()=>{memoryToast.textContent='';},2000);
-  }
+  }catch(e){console.error(e);memoryToast.textContent='✗ 记忆损坏';setTimeout(()=>{memoryToast.textContent='';},2000);}
 }
 
 // ==================== 音效 UI ====================
 function updateSoundUI(){
-  soundToggle.innerHTML = soundEnabled ? '<span>🔊 音效开启</span>' : '<span>🔇 音效关闭</span>';
-  if(soundEnabled && !musicPlaying) startBackgroundMusic();
-  else if(!soundEnabled && musicPlaying) stopBackgroundMusic();
+  soundToggle.innerHTML=soundEnabled?'<span>🔊 音效开启</span>':'<span>🔇 音效关闭</span>';
+  if(soundEnabled&&!musicPlaying)startBGM();
+  else if(!soundEnabled&&musicPlaying)stopBGM();
 }
 
 // ==================== 事件 ====================
-bgUpload.addEventListener('change',e=>{
-  const f = e.target.files[0];
-  if(!f) return;
-  const r = new FileReader();
-  r.onload = ev => sceneArea.style.backgroundImage = `url('${ev.target.result}')`;
-  r.readAsDataURL(f);
-  bgUpload.value = '';
-});
-
-avatarUpload.addEventListener('change',e=>{
-  const f = e.target.files[0];
-  if(!f) return;
-  const r = new FileReader();
-  r.onload = ev => {
-    avatarImg.src = ev.target.result;
-    avatarImg.style.display = 'block';
-    avatarDefault.style.display = 'none';
-  };
-  r.readAsDataURL(f);
-  avatarUpload.value = '';
-});
-
+bgUpload.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>sceneArea.style.backgroundImage=`url('${ev.target.result}')`;r.readAsDataURL(f);bgUpload.value='';});
+avatarUpload.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{avatarImg.src=ev.target.result;avatarImg.style.display='block';avatarDefault.style.display='none';};r.readAsDataURL(f);avatarUpload.value='';});
 saveBtn.addEventListener('click',saveMemory);
 loadBtn.addEventListener('click',loadMemory);
-
-soundToggle.addEventListener('click',()=>{
-  soundEnabled = !soundEnabled;
-  updateSoundUI();
-  if(soundEnabled) playTone(440,0.15,'sine',0.08);
-});
-
-// 首次点击启动音频
-document.body.addEventListener('click',function init(){
-  if(!audioCtx){
-    initAudio();
-    if(soundEnabled) startBackgroundMusic();
-  }
-  document.body.removeEventListener('click',init);
-},{once:true});
+soundToggle.addEventListener('click',()=>{soundEnabled=!soundEnabled;updateSoundUI();if(soundEnabled)playTone(440,0.15,'sine',0.08);});
+document.body.addEventListener('click',function init(){if(!audioCtx){initAudio();if(soundEnabled)startBGM();}document.body.removeEventListener('click',init);},{once:true});
 
 // ==================== 初始化 ====================
 renderNode('start');
 updateAffectionDisplay();
 updateSoundUI();
-if(!avatarImg.src || avatarImg.src === '' || avatarImg.src === window.location.href){
-  avatarImg.style.display = 'none';
-  avatarDefault.style.display = 'block';
-}else{
-  avatarImg.style.display = 'block';
-  avatarDefault.style.display = 'none';
-}
+if(!avatarImg.src||avatarImg.src===''||avatarImg.src===window.location.href){avatarImg.style.display='none';avatarDefault.style.display='block';}
+else{avatarImg.style.display='block';avatarDefault.style.display='none';}
 })();
 </script>
 </body>

@@ -575,7 +575,7 @@
       });
 
       // ---------- 头像上传 ----------
-      avatarUpload.addEventListener('cge', (e) => {
+      avatarUpload.addEventListener('change', (e) => {
         const file = e.target.files[0];
         if (!file) return;
         const reader = new FileReader();
@@ -623,4 +623,3 @@
   </script>
 </body>
 </html>
-```

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>禹宙回响 · 泽禹</title>
+  <style>
+    /* 全局绿色系 + 白色边框 + 细字体 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', system-ui, sans-serif;
+      font-weight: 300; /* 细字体 */
+      letter-spacing: 0.02em;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #1a3b2e 0%, #2a5a3e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    /* 主游戏卡 —— 白色边框，圆角，柔和阴影 */
+    .game-container {
+      width: 900px;
+      max-width: 100%;
+      background: rgba(220, 240, 220, 0.15);
+      backdrop-filter: blur(6px);
+      border: 3px solid #ffffff;
+      border-radius: 40px;
+      padding: 28px 32px 32px 32px;
+      box-shadow: 0 20px 40px rgba(0, 20, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* 标题/状态栏 */
+    .game-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      font-weight: 300;
+      text-shadow: 0 2px 6px #0f2a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      padding-bottom: 12px;
+    }
+
+    .game-title {
+      font-size: 1.9rem;
+      letter-spacing: 6px;
+      font-weight: 200;
+      text-transform: uppercase;
+      background: linear-gradient(to right, #f0fff0, #c0e0c0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .save-load-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .save-load-buttons button {
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.2s;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .save-load-buttons button:hover {
+      background: #ffffff;
+      color: #1a3b2e;
+      font-weight: 400;
+    }
+
+    /* 画面区域 — 可上传背景 */
+    .scene-area {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      border: 2px solid #ffffff;
+      border-radius: 32px;
+      background: #1e3e2c;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 16px 20px;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+      transition: 0.3s;
+    }
+
+    /* 背景上传按钮 —— 悬浮在画面右下 */
+    .bg-upload-label {
+      position: absolute;
+      bottom: 14px;
+      right: 18px;
+      background: rgba(255, 255, 255, 0.85);
+      color: #1e3e2c;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border: 1px solid #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bg-upload-label:hover {
+      background: #ffffff;
+      color: #0a2a1a;
+    }
+
+    .bg-upload-label input {
+      display: none;
+    }
+
+    /* 自定义头像区域 —— 在画面下方，角色头像 */
+    .avatar-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 6px 0 0 8px;
+    }
+
+    .avatar-box {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #ffffff;
+      background: #aad0b8;
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      flex-shrink: 0;
+    }
+
+    .avatar-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-default {
+      font-size: 3rem;
+      color: #1e3e2c;
+      font-weight: 200;
+      opacity: 0.8;
+    }
+
+    .avatar-upload {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .avatar-upload label {
+      background: transparent;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    .avatar-upload label:hover {
+      background: #ffffff;
+      color: #1a3b2e;
+    }
+
+    .avatar-upload input {
+      display: none;
+    }
+
+    /* 对话框 —— 选项式对话 */
+    .dialogue-box {
+      background: rgba(255, 255, 255, 0.88);
+      border: 2px solid #ffffff;
+      border-radius: 32px;
+      padding: 26px 28px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(8px);
+      margin-top: 6px;
+    }
+
+    .speaker-name {
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: #1a4a2a;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      border-left: 4px solid #1a4a2a;
+      padding-left: 12px;
+    }
+
+    .dialogue-text {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #173e24;
+      line-height: 1.5;
+      margin-bottom: 28px;
+      min-height: 70px;
+      word-break: break-word;
+    }
+
+    .options-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .option-btn {
+      background: #e4f3e4;
+      border: 2px solid #ffffff;
+      border-radius: 60px;
+      padding: 16px 24px;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #13381e;
+      text-align: left;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .option-btn:hover {
+      background: #ffffff;
+      border-color: #1a4a2a;
+      transform: translateX(6px);
+      box-shadow: 0 8px 18px rgba(0, 40, 0, 0.2);
+      font-weight: 400;
+    }
+
+    .option-btn span.opt-letter {
+      font-weight: 500;
+      color: #1a4a2a;
+      background: rgba(26, 74, 42, 0.15);
+      width: 30px;
+      height: 30px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 0.95rem;
+    }
+
+    /* 记忆/读档 状态提示 */
+    .memory-toast {
+      text-align: right;
+      font-size: 0.75rem;
+      color: #d0f0d0;
+      margin-top: 4px;
+      height: 18px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .game-container {
+        padding: 18px;
+      }
+      .game-title {
+        font-size: 1.4rem;
+        letter-spacing: 3px;
+      }
+      .dialogue-text {
+        font-size: 1.1rem;
+      }
+      .option-btn {
+        font-size: 1rem;
+        padding: 12px 18px;
+      }
+      .scene-area {
+        height: 180px;
+      }
+      .avatar-box {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <!-- 标题 + 记忆读档按钮 -->
+    <div class="game-header">
+      <div class="game-title">禹宙回响</div>
+      <div class="save-load-buttons">
+        <button id="saveBtn">📖 记忆</button>
+        <button id="loadBtn">🔁 读档</button>
+      </div>
+    </div>
+
+    <!-- 画面区域 (可上传背景) -->
+    <div class="scene-area" id="sceneArea" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'400\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%232a5a3e\'/%3E%3Ccircle cx=\'400\' cy=\'200\' r=\'120\' fill=\'%234a8a5e\' opacity=\'0.3\'/%3E%3Ctext x=\'400\' y=\'220\' font-size=\'36\' fill=\'%23ffffff\' text-anchor=\'middle\' font-family=\'sans-serif\' font-weight=\'200\'%3E禹宙回响%3C/text%3E%3C/svg%3E');">
+      <!-- 背景上传按钮 -->
+      <label class="bg-upload-label" for="bgUpload">
+        🖼️ 上传画面
+        <input type="file" id="bgUpload" accept="image/*">
+      </label>
+    </div>
+
+    <!-- 自定义头像区域 + 角色头像 -->
+    <div class="avatar-section">
+      <div class="avatar-box" id="avatarBox">
+        <!-- 默认头像: 细体 "禹" 字 -->
+        <div class="avatar-default" id="avatarDefault">禹</div>
+        <img id="avatarImg" src="" alt="头像" style="display: none;">
+      </div>
+      <div class="avatar-upload">
+        <label for="avatarUpload">📷 自定义头像</label>
+        <input type="file" id="avatarUpload" accept="image/*">
+      </div>
+      <!-- 小小的提示，显示当前记忆状态 -->
+      <div style="flex:1; text-align:right;" class="memory-toast" id="memoryToast"></div>
+    </div>
+
+    <!-- 对话框与选项 -->
+    <div class="dialogue-box">
+      <div class="speaker-name" id="speakerName">张泽禹</div>
+      <div class="dialogue-text" id="dialogueText">你…你真的喜欢我吗？</div>
+      <div class="options-container" id="optionsContainer">
+        <!-- 选项通过 JS 动态渲染 -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ---------- 游戏数据 ----------
+      // 状态机: 每个节点有 speaker, text, options (数组)
+      // 每个选项有 text, next (下一个节点索引), 以及可选的 action (用于改变好感等，但本例只做剧情)
+      const story = {
+        start: {
+          speaker: "张泽禹",
+          text: "你…你真的喜欢我吗？",
+          options: [
+            { text: "答应他", next: "accept" },
+            { text: "拒绝他", next: "reject" },
+            { text: "沉默", next: "silent" }
+          ]
+        },
+        accept: {
+          speaker: "张泽禹",
+          text: "真的吗？我好开心…… 谢谢你愿意走向我。",
+          options: [
+            { text: "我也很开心", next: "happyEnd" },
+            { text: "以后要一直在一起", next: "happyEnd" }
+          ]
+        },
+        reject: {
+          speaker: "张泽禹",
+          text: "……好吧，我明白了。但还是希望你幸福。",
+          options: [
+            { text: "对不起", next: "sadEnd" },
+            { text: "我们还是朋友", next: "sadEnd" }
+          ]
+        },
+        silent: {
+          speaker: "张泽禹",
+          text: "……沉默也没关系。我会等，等到你愿意回答的那天。",
+          options: [
+            { text: "抬起头看他", next: "silentContinue" },
+            { text: "转身离开", next: "sadEnd" }
+          ]
+        },
+        silentContinue: {
+          speaker: "张泽禹",
+          text: "你眼睛红了…… 别哭，我还在呢。",
+          options: [
+            { text: "抱住他", next: "happyEnd" },
+            { text: "擦擦眼泪", next: "happyEnd" }
+          ]
+        },
+        happyEnd: {
+          speaker: "张泽禹",
+          text: "禹宙很大，但我的回响只为你。✨",
+          options: [
+            { text: "重新开始", next: "start" }
+          ]
+        },
+        sadEnd: {
+          speaker: "张泽禹",
+          text: "也许有些故事注定要停在风里。再见。🍃",
+          options: [
+            { text: "重新开始", next: "start" }
+          ]
+        }
+      };
+
+      // 当前节点ID
+      let currentNodeId = "start";
+
+      // ---------- DOM 元素 ----------
+      const speakerNameEl = document.getElementById('speakerName');
+      const dialogueTextEl = document.getElementById('dialogueText');
+      const optionsContainer = document.getElementById('optionsContainer');
+      const sceneArea = document.getElementById('sceneArea');
+      const avatarBox = document.getElementById('avatarBox');
+      const avatarImg = document.getElementById('avatarImg');
+      const avatarDefault = document.getElementById('avatarDefault');
+      const memoryToast = document.getElementById('memoryToast');
+
+      // 背景/头像上传
+      const bgUpload = document.getElementById('bgUpload');
+      const avatarUpload = document.getElementById('avatarUpload');
+
+      // 保存/读档按钮
+      const saveBtn = document.getElementById('saveBtn');
+      const loadBtn = document.getElementById('loadBtn');
+
+      // 记忆存储对象 (用于localStorage)
+      const STORAGE_KEY = 'yuzhou_memory_save';
+
+      // ---------- 渲染当前节点 (选项式对话) ----------
+      function renderNode(nodeId) {
+        const node = story[nodeId];
+        if (!node) {
+          console.warn('节点不存在，回到start');
+          nodeId = 'start';
+          return renderNode(nodeId);
+        }
+
+        // 更新当前节点
+        currentNodeId = nodeId;
+
+        // 说话人与对话
+        speakerNameEl.textContent = node.speaker || '张泽禹';
+        dialogueTextEl.textContent = node.text || '';
+
+        // 清空并生成选项按钮
+        optionsContainer.innerHTML = '';
+        node.options.forEach((opt, index) => {
+          const btn = document.createElement('button');
+          btn.className = 'option-btn';
+
+          // 字母标号 A, B, C ...
+          const letter = String.fromCharCode(65 + index); // A,B,C
+          const letterSpan = document.createElement('span');
+          letterSpan.className = 'opt-letter';
+          letterSpan.textContent = letter;
+
+          const textSpan = document.createElement('span');
+          textSpan.textContent = opt.text;
+
+          btn.appendChild(letterSpan);
+          btn.appendChild(textSpan);
+
+          // 点击进入下一个节点
+          btn.addEventListener('click', () => {
+            // 可以在这里加一些细微动效或者记忆
+            renderNode(opt.next);
+          });
+
+          optionsContainer.appendChild(btn);
+        });
+      }
+
+      // ---------- 保存记忆 (到 localStorage) ----------
+      function saveMemory() {
+        // 保存当前节点、背景(base64/url), 头像状态, 以及是否有自定义头像
+        const bgImage = sceneArea.style.backgroundImage; // 字符串 "url('...')"
+        const avatarImgSrc = avatarImg.src; // 可能是空字符或base64
+        const hasAvatar = avatarImg.style.display !== 'none' && avatarImg.src !== '';
+        // 头像框内容状态 简单处理: 如果头像显示，就不保存默认; 我们存储整个avatarImg.src和它的显示状态
+        const memory = {
+          currentNodeId: currentNodeId,
+          backgroundImage: bgImage,
+          avatarSrc: avatarImgSrc,
+          showAvatar: avatarImg.style.display !== 'none',
+          timestamp: Date.now()
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(memory));
+        // 提示
+        memoryToast.textContent = '✓ 记忆已封存 · ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        setTimeout(() => { memoryToast.textContent = ''; }, 3000);
+      }
+
+      // ---------- 读取记忆 ----------
+      function loadMemory() {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved) {
+          memoryToast.textContent = '✗ 暂无记忆存档';
+          setTimeout(() => { memoryToast.textContent = ''; }, 2000);
+          return;
+        }
+
+        try {
+          const memory = JSON.parse(saved);
+          // 1. 恢复对话节点
+          if (memory.currentNodeId && story[memory.currentNodeId]) {
+            renderNode(memory.currentNodeId);
+          } else {
+            renderNode('start');
+          }
+
+          // 2. 恢复背景 (如果存在)
+          if (memory.backgroundImage) {
+            sceneArea.style.backgroundImage = memory.backgroundImage;
+          } else {
+            // 如果没有，保留现在的
+          }
+
+          // 3. 恢复头像
+          if (memory.avatarSrc && memory.showAvatar) {
+            avatarImg.src = memory.avatarSrc;
+            avatarImg.style.display = 'block';
+            avatarDefault.style.display = 'none';
+          } else {
+            // 显示默认头像
+            avatarImg.style.display = 'none';
+            avatarDefault.style.display = 'block';
+            avatarImg.src = ''; // 清理
+          }
+
+          memoryToast.textContent = '↺ 记忆已读取 · ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          setTimeout(() => { memoryToast.textContent = ''; }, 3000);
+        } catch (e) {
+          console.error('读档失败', e);
+          memoryToast.textContent = '✗ 记忆损坏';
+          setTimeout(() => { memoryToast.textContent = ''; }, 2000);
+        }
+      }
+
+      // ---------- 背景上传 ----------
+      bgUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          sceneArea.style.backgroundImage = `url('${ev.target.result}')`;
+          // 顺便把背景也放到记忆? 但记忆是手动保存的，所以不需要自动存
+        };
+        reader.readAsDataURL(file);
+        // 清空input，让同一文件可再次上传
+        bgUpload.value = '';
+      });
+
+      // ---------- 头像上传 ----------
+      avatarUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          avatarImg.src = ev.target.result;
+          avatarImg.style.display = 'block';
+          avatarDefault.style.display = 'none';
+        };
+        reader.readAsDataURL(file);
+        avatarUpload.value = '';
+      });
+
+      // ---------- 如果头像是空，显示默认 ----------
+      // 在初始化时调用一下确保状态
+      function ensureAvatarDefault() {
+        if (!avatarImg.src || avatarImg.src === '' || avatarImg.src === window.location.href) {
+          avatarImg.style.display = 'none';
+          avatarDefault.style.display = 'block';
+        } else {
+          // 有src
+          avatarImg.style.display = 'block';
+          avatarDefault.style.display = 'none';
+        }
+      }
+
+      // 初始化头像状态
+      ensureAvatarDefault();
+
+      // ---------- 绑定记忆按钮 ----------
+      saveBtn.addEventListener('click', saveMemory);
+      loadBtn.addEventListener('click', loadMemory);
+
+      // ---------- 开始游戏（默认节点 start）----------
+      renderNode('start');
+
+      // 可选：键盘快捷键保存/读档 (Ctrl+S / Ctrl+L) 但避免与浏览器冲突, 只做扩展, 不加也可
+      // 也可以监听键盘A/B/C选择选项，但选项按钮已经足够
+
+      // 额外小优化: 如果用户点击"重新开始"之类的选项，会经过renderNode回到start，保持背景和头像不变(挺好)
+      // 背景与头像独立于剧情。
+
+      // 如果加载时localStorage有自动保存? 我们不自动读取，让玩家手动读档。
+      // 但页面关闭再打开，可以提示有存档? 不做复杂处理。
+    })();
+  </script>
+</body>
+</html>
